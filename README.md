@@ -1,2 +1,2 @@
-# 20203040	Seongho Kim
+# 2020xxxx	Seongho Kim
 # Kookmin Univ. SW
