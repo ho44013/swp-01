@@ -9,11 +9,13 @@ def application(environ, start_response):
 	summ, prod = 0, 0
 	if '' in [a,b]:
 		summ, prod = -1, -1
-        if '' not in [a, b]:
+	try:
                 a, b = int(a), int(b)
         	summ = a + b
         	prod = a * b
-
+	except ValueError:
+		summ = -1
+		prod = -1
         response_body = html %{'sum' = summ, 'prod' = prod}
 
         start_response('200 OK', [
