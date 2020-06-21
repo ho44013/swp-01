@@ -7,8 +7,6 @@ def application(environ, start_response):
         a = d.get('a', [''])[0]
         b = d.get('b', [''])[0]
 	summ, prod = 0, 0
-	if '' in [a,b]:
-		summ, prod = -1, -1
 	try:
                 a, b = int(a), int(b)
         	summ = a + b
@@ -16,6 +14,9 @@ def application(environ, start_response):
 	except ValueError:
 		summ = -1
 		prod = -1
+		if '' in [a,b]:
+			summ = ' '
+			prod = ' '
         response_body = html %{'sum' = summ, 'prod' = prod}
 
         start_response('200 OK', [
